@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CITYMART demo supermarket website">
+  <title>CITYMART | Everyday shopping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="CITYMART home">CITY<span>MART</span></a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
+    </nav>
+
+    <button class="cart-button" id="open-cart-button" type="button" aria-label="Open shopping cart">
+      <span aria-hidden="true">&#128722;</span> Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Your neighbourhood marketplace</p>
+        <h1>Everything you need, <em>closer to home.</em></h1>
+        <p class="hero-text">Shop fresh groceries, kitchen essentials, beauty picks and more—all in one friendly place.</p>
+        <a class="primary-button" href="#products">Explore products <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="bag">
+          <span class="leaf leaf-one">●</span>
+          <span class="leaf leaf-two">●</span>
+          <span class="leaf leaf-three">●</span>
+          <strong>CM</strong>
+        </div>
+        <div class="orange orange-one"></div>
+        <div class="orange orange-two"></div>
+      </div>
+    </section>
+
+    <section class="categories section" id="categories">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Browse with ease</p>
+          <h2>Shop by category</h2>
+        </div>
+        <a href="#products">View all categories →</a>
+      </div>
+
+      <!-- These cards will become working category filters in a later step. -->
+      <div class="category-grid">
+        <a class="category-card produce" href="#products"><span>🥬</span><strong>Fresh Produce</strong><small>Fruits & vegetables</small></a>
+        <a class="category-card pantry" href="#products"><span>🥫</span><strong>Pantry</strong><small>Everyday staples</small></a>
+        <a class="category-card drinks" href="#products"><span>🧃</span><strong>Drinks</strong><small>Cool refreshments</small></a>
+        <a class="category-card beauty" href="#products"><span>🧴</span><strong>Beauty & Care</strong><small>Feel good essentials</small></a>
+      </div>
+    </section>
+
+    <section class="products-preview section" id="products">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Freshly stocked</p>
+          <h2>Popular picks</h2>
+        </div>
+        <p class="preview-note">Find your favourites by name, brand, or category.</p>
+      </div>
+      <div class="catalogue-controls">
+        <label class="search-box" for="search-input">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="Search products...">
+        </label>
+        <div class="filter-buttons" aria-label="Filter products by category">
+          <button class="filter-button active" type="button" data-category="All">All</button>
+          <button class="filter-button" type="button" data-category="Groceries">Groceries</button>
+          <button class="filter-button" type="button" data-category="Drinks">Drinks</button>
+          <button class="filter-button" type="button" data-category="Snacks">Snacks</button>
+          <button class="filter-button" type="button" data-category="Dairy">Dairy</button>
+          <button class="filter-button" type="button" data-category="Household">Household</button>
+          <button class="filter-button" type="button" data-category="Personal Care">Personal Care</button>
+        </div>
+      </div>
+      <!-- JavaScript adds all product cards inside this empty container. -->
+      <div class="product-grid" id="product-grid"></div>
+      <p class="cart-message" id="cart-message" aria-live="polite"></p>
+    </section>
+
+    <section class="cart-section section" id="cart-section">
+      <div class="cart-heading">
+        <div>
+          <p class="eyebrow">Your basket</p>
+          <h2>Shopping cart</h2>
+        </div>
+        <button class="close-cart-button" id="continue-shopping-button" type="button">&#8592; Continue shopping</button>
+      </div>
+      <div class="cart-content">
+        <!-- JavaScript adds the cart products inside this container. -->
+        <div class="cart-items" id="cart-items"></div>
+        <aside class="cart-summary">
+          <p>Order total</p>
+          <strong id="cart-total">&#8358;0</strong>
+          <p class="cart-summary-note">This is a learning project. Checkout will be added later.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="logo" href="#home">CITY<span>MART</span></a>
+    <p>A practice e-commerce project — not a real store.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
