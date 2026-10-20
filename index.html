@@ -15,35 +15,62 @@
     <a class="logo" href="#home" aria-label="CITYMART home">CITY<span>MART</span></a>
 
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#products">Products</a>
-    </nav>
+  <a href="#home">Home</a>
+  <a href="#categories">Categories</a>
+  <a href="#products">Products</a>
+</nav>
 
-    <button class="cart-button" id="open-cart-button" type="button" aria-label="Open shopping cart">
+<div class="header-actions">
+  <button
+    class="menu-button"
+    id="menu-button"
+    type="button"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+  >
+    ☰
+  </button>
+
+  <button class="cart-button" id="open-cart-button" type="button" aria-label="Open shopping cart">
       <span aria-hidden="true">&#128722;</span> Cart <span class="cart-count" id="cart-count">0</span>
     </button>
+</div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="hero-copy">
         <p class="eyebrow">Your neighbourhood marketplace</p>
-        <h1>Everything you need, <em>closer to home.</em></h1>
+        <h1>Your everyday shop, <em>elevated.</em></h1>
         <p class="hero-text">Shop fresh groceries, kitchen essentials, beauty picks and more—all in one friendly place.</p>
+        <p class="hero-message" id="hero-message">Shop with ease.</p>
         <a class="primary-button" href="#products">Explore products <span aria-hidden="true">→</span></a>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <div class="sun"></div>
-        <div class="bag">
-          <span class="leaf leaf-one">●</span>
-          <span class="leaf leaf-two">●</span>
-          <span class="leaf leaf-three">●</span>
-          <strong>CM</strong>
-        </div>
-        <div class="orange orange-one"></div>
-        <div class="orange orange-two"></div>
-      </div>
+  <div class="hero-glow glow-one"></div>
+  <div class="hero-glow glow-two"></div>
+  <div class="hero-orbit orbit-one"></div>
+  <div class="hero-orbit orbit-two"></div>
+  <div class="hero-photo hero-photo-main"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1000&q=85" alt=""></div>
+  <div class="hero-photo hero-photo-small"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=85" alt=""></div>
+  <div class="fresh-note"><span>New in</span><strong>Good food<br>looks good.</strong></div>
+  <div class="hero-price-tag"><span>from</span><strong>&#8358;450</strong><small>everyday favourites</small></div>
+  <div class="sun"></div>
+
+  <div class="floating-dot dot-one"></div>
+  <div class="floating-dot dot-two"></div>
+  <div class="floating-dot dot-three"></div>
+
+  <div class="bag">
+    <span class="leaf leaf-one">●</span>
+    <span class="leaf leaf-two">●</span>
+    <span class="leaf leaf-three">●</span>
+    <strong>CM</strong>
+  </div>
+
+  <div class="orange orange-one"></div>
+  <div class="orange orange-two"></div>
+</div>
     </section>
 
     <section class="categories section" id="categories">
@@ -104,12 +131,124 @@
         <!-- JavaScript adds the cart products inside this container. -->
         <div class="cart-items" id="cart-items"></div>
         <aside class="cart-summary">
-          <p>Order total</p>
-          <strong id="cart-total">&#8358;0</strong>
-          <p class="cart-summary-note">This is a learning project. Checkout will be added later.</p>
-        </aside>
+  <p>Order total</p>
+  <strong id="cart-total">&#8358;0</strong>
+
+  <button class="checkout-button" id="checkout-button" type="button">
+    Proceed to Checkout
+  </button>
+
+  <p class="cart-summary-note">
+    Delivery charges will be calculated at checkout.
+  </p>
+</aside>
       </div>
     </section>
+    <section class="checkout-section" id="checkout-section">
+  <div class="checkout-container">
+
+    <div class="checkout-header">
+      <div>
+        <p class="eyebrow">Almost there</p>
+        <h2>Checkout</h2>
+        <p>Enter your details so we can prepare your order.</p>
+      </div>
+
+      <button
+        class="close-checkout-button"
+        id="close-checkout-button"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="checkout-layout">
+
+      <form class="checkout-form" id="checkout-form">
+
+        <div class="checkout-card">
+          <h3>Contact information</h3>
+
+          <label for="customer-name">Full name</label>
+          <input
+            id="customer-name"
+            name="customerName"
+            type="text"
+            placeholder="Enter your full name"
+            required
+          >
+
+          <label for="customer-phone">Phone number</label>
+          <input
+            id="customer-phone"
+            name="customerPhone"
+            type="tel"
+            placeholder="08012345678"
+            required
+          >
+        </div>
+
+        <div class="checkout-card">
+          <h3>Delivery details</h3>
+
+          <label for="delivery-address">Delivery address</label>
+          <textarea
+            id="delivery-address"
+            name="deliveryAddress"
+            rows="4"
+            placeholder="House number, street, estate, etc."
+            required
+          ></textarea>
+
+          <label for="delivery-area">Delivery area</label>
+          <select id="delivery-area" name="deliveryArea" required>
+            <option value="">Select your area</option>
+            <option value="Gwarinpa">Gwarinpa</option>
+            <option value="Wuse">Wuse</option>
+            <option value="Maitama">Maitama</option>
+            <option value="Kubwa">Kubwa</option>
+          </select>
+
+          <label for="order-note">Order note <span>(optional)</span></label>
+          <textarea
+            id="order-note"
+            name="orderNote"
+            rows="3"
+            placeholder="Anything you'd like us to know?"
+          ></textarea>
+        </div>
+
+        <button class="place-order-button" type="submit">
+          Proceed to Payment
+        </button>
+
+      </form>
+
+      <aside class="checkout-summary">
+        <h3>Your order</h3>
+
+        <div id="checkout-items"></div>
+
+        <div class="checkout-total-row">
+          <span>Subtotal</span>
+          <strong id="checkout-subtotal">₦0</strong>
+        </div>
+
+        <div class="checkout-total-row">
+          <span>Delivery</span>
+          <strong id="checkout-delivery">Free</strong>
+        </div>
+
+        <div class="checkout-final-total">
+          <span>Total</span>
+          <strong id="checkout-total">₦0</strong>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
   </main>
 
   <footer class="site-footer">
